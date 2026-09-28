@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MovieBook</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>🎬 MovieBook</h1>
+  <p>Movies • Shows • Tickets</p>
+</header>
+
+<!-- MOVIE HOME SCREEN -->
+<section id="homeScreen" class="screen-page">
+  <div class="container">
+    <h2>Now Showing</h2>
+    <p class="subtitle">Select a movie to book your tickets</p>
+    <div id="movieGrid" class="movie-grid"></div>
+  </div>
+</section>
+
+<!-- BOOKING SCREEN -->
+<section id="bookingScreen" class="screen-page hidden">
+  <div class="container">
+    <button class="back-btn" onclick="showHome()">← Back to Movies</button>
+
+    <div class="movie-title">
+      <h2 id="bookingMovieName"></h2>
+      <span id="bookingRating"></span>
+    </div>
+
+    <div class="form-row">
+      <div>
+        <label>Date</label>
+        <input type="date" id="date">
+      </div>
+      <div>
+        <label>Show Time</label>
+        <select id="time"></select>
+      </div>
+    </div>
+
+    <h2>Choose Seats</h2>
+    <p class="hint">Grey = Available &nbsp; Green = Selected &nbsp; Red = Sold</p>
+    <div class="screen-label">SCREEN</div>
+    <div id="seatMap" class="seat-map"></div>
+
+    <div class="summary">
+      <p>Selected Seats: <b id="selectedSeats">None</b></p>
+      <p>Price per ticket: ₹<b id="ticketPrice">0</b></p>
+      <p class="total">Total: ₹<b id="totalPrice">0</b></p>
+    </div>
+
+    <h2>Payment</h2>
+
+    <div class="payments">
+      <label><input type="radio" name="payment" value="UPI" checked> UPI</label>
+      <label><input type="radio" name="payment" value="Card"> Card</label>
+      <label><input type="radio" name="payment" value="Cash"> Pay at Counter</label>
+    </div>
+
+    <div id="paymentDetails"></div>
+
+    <button class="book-btn" onclick="bookTicket()">Book Now</button>
+  </div>
+</section>
+
+<!-- SUCCESS SCREEN -->
+<section id="successScreen" class="success-page hidden">
+  <div class="success-box">
+    <div class="check">✓</div>
+    <h2>Booking Successful!</h2>
+    <p id="confirmation"></p>
+    <button class="book-btn" onclick="showHome()">Back to Movies</button>
+    <button class="close-btn" onclick="closeApp()">Close</button>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
